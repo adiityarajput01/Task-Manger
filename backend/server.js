@@ -2,6 +2,7 @@ const express = require("express");
 require('dotenv').config(); 
 const auth_routes = require('./routes/auth');
 const connectDB = require('./config/db');
+const task_routes = require('./routes/task');
 
 const app = express();
 
@@ -10,7 +11,10 @@ connectDB();
 
 app.use(express.json());
 
-app.use("/api/auth", auth_routes)
+
+app.use("/api/auth", auth_routes);
+app.use("/api/tasks",task_routes);
+
 
 app.route('/').get((req,res)=>{
     res.send('Server is running.');
