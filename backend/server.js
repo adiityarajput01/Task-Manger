@@ -12,8 +12,10 @@ connectDB();
 app.use(cors({
     origin: [
         "http://localhost:3000",
-        ""
-    ]
+        "http://13.232.210.27:3000",  // your EC2 frontend
+        "http://13.232.210.27" 
+    ], 
+    credentials: true
 }));
 app.use(express.json());
 
